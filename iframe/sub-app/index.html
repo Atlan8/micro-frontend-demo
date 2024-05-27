@@ -19,7 +19,7 @@
         const handleClick = () => {
             counter += 1
             document.querySelector('.counter').innerHTML = counter
-            window.postMessage(JSON.stringify({type: 'sub-app-message', counter: counter}), 'http://localhost:8080')
+            window.postMessage(JSON.stringify({type: 'sub-app-message', counter: counter}), 'http://127.0.0.1:8080')
         }
     </script>
 </body>
