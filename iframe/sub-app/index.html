@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我是子应用</title>
+</head>
+<body>
+    <div class="sub-app">
+        <div class="counter">0</div>
+        <button onclick="handleClick()">点击添加</button>
+    </div>
+    <script>
+        let counter = 0
+        window.onload = () => {
+            
+            
+        }
+        const handleClick = () => {
+            counter += 1
+            document.querySelector('.counter').innerHTML = counter
+            window.postMessage(JSON.stringify({type: 'sub-app-message', counter: counter}), 'http://localhost:8080')
+        }
+    </script>
+</body>
+</html>
