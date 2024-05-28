@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 // import * as serviceWorker from "./serviceWorker";
+import {globalState} from './globalState/index'
 
 function render(props) {
   const { container } = props;
@@ -42,6 +43,8 @@ export async function mount(props) {
   console.log("[react16] props from main framework", props);
   storeTest(props);
   render(props);
+  globalState.onGlobalStateChange = props.onGlobalStateChange
+  globalState.setGlobalState = props.setGlobalState
 }
 
 /**

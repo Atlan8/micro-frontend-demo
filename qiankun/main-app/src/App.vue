@@ -1,11 +1,28 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <div id="container"></div>
-  <router-view />
+  <div>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav>
+    <div id="container"></div>
+    <router-view />
+  </div>
 </template>
+
+<script setup>
+import { initGlobalState } from 'qiankun';
+import { onMounted } from 'vue';
+
+const actions = initGlobalState({'store-sub-app': ''})
+
+onMounted(() => {
+  actions.onGlobalStateChange((state, prev) => {
+    console.log('=========== main app =========',state, prev)
+  })
+})
+
+
+</script>
 
 <style lang="scss">
 #app {
